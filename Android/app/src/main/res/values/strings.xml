@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">行政院原子委員會</string>
+
+    <!--Dialog-->
+    <string name="message_title">訊息</string>
+    <string name="button_confirm">確認</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_submit">送出</string>
+    <string name="button_register">註冊</string>
+    <string name="button_login">登入</string>
+
+    <string name="error_title">"錯誤"</string>
+    <string name="error_network_failed">請確認網路狀態是否正常，或重新開啟APP</string>
+    <string name="error_open_internet_setting_meaage">"偵測沒有打開網路，是否前往開啟網路設定？"</string>
+    <string name="white_space">&#160;</string>
+
+    <string name="purchase_date">購入日期</string>
+    <string name="digest_number_and_dot">0123456789.</string>
+    <string name="digest_number">0123456789</string>
+
+    <!--Location Message-->
+    <string name="service_not_available">無法獲得定位服務</string>
+    <string name="invalid_lat_long_used">錯誤的經緯度格式</string>
+    <string name="no_address_found">找不到對應的地址</string>
+    <string name="address_found">找到對應的地址</string>
+
+
+    <string name="register_birthday_hint">請選擇出生年月日</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+</resources>
