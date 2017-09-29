@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1093274390854",
+    "firebase_url": "https://atomicenergy-178707.firebaseio.com",
+    "project_id": "atomicenergy-178707",
+    "storage_bucket": "atomicenergy-178707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093274390854:android:ff442d522ab8d905",
+        "android_client_info": {
+          "package_name": "com.returntrue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093274390854-4qlu8bpis6ssjhl6ml19lpk82nosh9ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLoopwF8PEtXl91R9GOk7v4x3z93whWmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+progress - Integer Value.
+
+max - Integer Value.
+
+move_outside_circle - True/False. Default is false. In the case that the user has already touched down on the CircularSeekBar and is adjusting the progress, this determines whether or not movement outside the circle is accepted and adjusted the progress.
+
+start_angle - Decimal Value. Start angle of the circle. Angles are relative to 3 o'clock (positive X axis).
+
+end_angle - Decimal Value. End angle of the circle. Angles are relative to 3 o'clock (positive X axis).
+
+maintain_equal_circle - True/False. Default is true. This controls whether or not an ellipse shape is available. Ellipses are not accurate in terms of representing progress, so be aware of that when you set this to false. Default value is true.
+
+use_custom_radii - True/False. Default is false. If true, then you can specify radii using attributes. No matter what is specified, they will not exceed the bounds of the View itself. If false, then the View size (android:layout_width and android:layout_height) is used.
+
+lock_enabled - True/False. Default is true. If true, then the progress will "stick" to the start/end point. If false, it'll just pass through.
+
+circle_x_radius - Decimal Value. Custom X radius in DP.. Requires use_custom_radii to be true.
+
+circle_y_radius - Decimal Value. Custom Y radius in DP. Requires use_custom_radii to be true.
+
+circle_stroke_width - Decimal Value. Defines the width of the circle ring in DP.
+
+pointer_radius - Decimal Value. Defines the radius of the pointer in DP.
+
+pointer_halo_width - Decimal Value. Defines the width of the pointer halo in DP. Note: This is NOT a radius; it is in addition to the pointer radius.
+
+pointer_halo_border_width - Decimal Value. Defines the width of the pointer halo border in DP. Note: This is NOT a radius; it is in addition to the pointer radius. The border shows up when the user is touching the CircularSeekBar.
+
+circle_color - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).
+
+circle_progress_color - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).
+
+pointer_color - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).
+
+pointer_halo_color - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value). If no alpha is included, it defaults to 200 (out of 255).
+
+pointer_alpha_ontouch - Integer value. When the user touches the CircularSeekBar, the opacity/alpha of the pointer halo changes to this value. Defaults to 100 (out of 255).
+    -->
+    <declare-styleable name="CircularSeekBar">
+        <attr name="progresses" format="integer"/>
+        <attr name="max" format="integer"/>
+        <attr name="move_outside_circle" format="boolean"/>
+        <attr name="maintain_equal_circle" format="boolean"/>
+        <attr name="use_custom_radii" format="boolean"/>
+        <attr name="lock_enabled" format="boolean"/>
+        <attr name="circle_x_radius" format="dimension"/>
+        <attr name="circle_y_radius" format="dimension"/>
+        <attr name="circle_stroke_width" format="dimension"/>
+        <attr name="pointer_radius" format="dimension"/>
+        <attr name="pointer_halo_width" format="dimension"/>
+        <attr name="pointer_halo_border_width" format="dimension"/>
+        <attr name="circle_color" format="color"/>
+        <attr name="circle_progress_color" format="color"/>
+        <attr name="pointer_color" format="color"/>
+        <attr name="pointer_halo_color" format="color"/>
+        <attr name="pointer_halo_color_ontouch" format="color"/>
+        <attr name="pointer_alpha_ontouch" format="integer"/>
+        <attr name="start_angle" format="float"/>
+        <attr name="end_angle" format="float"/>
+        <attr name="circle_fill" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="RoundishImageView">
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="roundedCorners">
+            <flag name="topLeft" value="1"/>
+            <flag name="topRight" value="2"/>
+            <flag name="bottomRight" value="4"/>
+            <flag name="bottomLeft" value="8"/>
+            <flag name="all" value="15"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MaxHeightWebView">
+        <attr name="vMaxHeight" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="ViewPagerIndicator">
+        <!-- Style of the circle indicator. -->
+        <attr name="vpiCirclePageIndicatorStyle" format="reference"/>
+        <!-- Style of the icon indicator's views. -->
+        <attr name="vpiIconPageIndicatorStyle" format="reference"/>
+        <!-- Style of the line indicator. -->
+        <attr name="vpiLinePageIndicatorStyle" format="reference"/>
+        <!-- Style of the title indicator. -->
+        <attr name="vpiTitlePageIndicatorStyle" format="reference"/>
+        <!-- Style of the tab indicator's tabs. -->
+        <attr name="vpiTabPageIndicatorStyle" format="reference"/>
+        <!-- Style of the underline indicator. -->
+        <attr name="vpiUnderlinePageIndicatorStyle" format="reference"/>
+    </declare-styleable>
+
+    <attr name="centered" format="boolean"/>
+    <attr name="selectedColor" format="color"/>
+    <attr name="strokeWidth" format="dimension"/>
+    <attr name="unselectedColor" format="color"/>
+
+    <declare-styleable name="CirclePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="centered"/>
+        <!-- Color of the filled circle that represents the current page. -->
+        <attr name="fillColor" format="color"/>
+        <!-- Color of the filled circles that represents pages. -->
+        <attr name="pageColor" format="color"/>
+        <!-- Orientation of the indicator. -->
+        <attr name="android:orientation"/>
+        <!-- Radius of the circles. This is also the spacing between circles. -->
+        <attr name="radius" format="dimension"/>
+        <!-- Whether or not the selected indicator snaps to the circles. -->
+        <attr name="snap" format="boolean"/>
+        <!-- Color of the open circles. -->
+        <attr name="strokeColor" format="color"/>
+        <!-- Width of the stroke used to draw the circles. -->
+        <attr name="strokeWidth"/>
+        <!-- View background -->
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="LinePageIndicator">
+        <!-- Whether or not the indicators should be centered. -->
+        <attr name="centered"/>
+        <!-- Color of the unselected lines that represent the pages. -->
+        <attr name="unselectedColor"/>
+        <!-- Color of the selected line that represents the current page. -->
+        <attr name="selectedColor"/>
+        <!-- Width of each indicator line. -->
+        <attr name="lineWidth" format="dimension"/>
+        <!-- Width of each indicator line's stroke. -->
+        <attr name="strokeWidth"/>
+        <!-- Width of the gap between each indicator line. -->
+        <attr name="gapWidth" format="dimension"/>
+        <!-- View background -->
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="TitlePageIndicator">
+        <!-- Screen edge padding. -->
+        <attr name="clipPadding" format="dimension"/>
+        <!-- Color of the footer line and indicator. -->
+        <attr name="footerColor" format="color"/>
+        <!-- Height of the footer line. -->
+        <attr name="footerLineHeight" format="dimension"/>
+        <!-- Style of the indicator. Default is triangle. -->
+        <attr name="footerIndicatorStyle">
+            <enum name="none" value="0"/>
+            <enum name="triangle" value="1"/>
+            <enum name="underline" value="2"/>
+        </attr>
+        <!-- Height of the indicator above the footer line. -->
+        <attr name="footerIndicatorHeight" format="dimension"/>
+        <!-- Left and right padding of the underline indicator. -->
+        <attr name="footerIndicatorUnderlinePadding" format="dimension"/>
+        <!-- Padding between the bottom of the title and the footer. -->
+        <attr name="footerPadding" format="dimension"/>
+        <!-- Position of the line. -->
+        <attr name="linePosition">
+            <enum name="bottom" value="0"/>
+            <enum name="top" value="1"/>
+        </attr>
+        <!-- Color of the selected title. -->
+        <attr name="selectedColor"/>
+        <!-- Whether or not the selected item is displayed as bold. -->
+        <attr name="selectedBold" format="boolean"/>
+        <!-- Color of regular titles. -->
+        <attr name="android:textColor"/>
+        <!-- Size of title text. -->
+        <attr name="android:textSize"/>
+        <!-- Padding between titles when bumping into each other. -->
+        <attr name="titlePadding" format="dimension"/>
+        <!-- Padding between titles and the top of the View. -->
+        <attr name="topPadding" format="dimension"/>
+        <!-- View background -->
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="UnderlinePageIndicator">
+        <!-- Whether or not the selected indicator fades. -->
+        <attr name="fades" format="boolean"/>
+        <!-- Length of the delay to fade the indicator. -->
+        <attr name="fadeDelay" format="integer"/>
+        <!-- Length of the indicator fade to transparent. -->
+        <attr name="fadeLength" format="integer"/>
+        <!-- Color of the selected line that represents the current page. -->
+        <attr name="selectedColor"/>
+        <!-- View background -->
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="StrokedTextAttrs">
+        <attr name="textStrokeColor" format="color"/>
+        <attr name="textStrokeWidth" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="AnalogClock">
+        <attr name="dial" format="reference"/>
+        <attr name="hand_hour" format="reference"/>
+        <attr name="hand_minute" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="ConnectLineGameViewStyle">
+        <!-- TvWall 背景漸層開始顏色 -->
+        <attr name="normalShadowBegin" format="reference|color"/>
+        <!-- TvWall 背景漸層結束顏色 -->
+        <attr name="normalShadowEnd" format="reference|color"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension"/>
+        <attr name="showFadeEffect" format="boolean"/>
+        <attr name="android:divider"/>
+        <attr name="android:requiresFadingEdge"/>
+        <attr name="android:fadingEdgeLength"/>
+    </declare-styleable>
+    <declare-styleable name="LinkEnabledTextView">
+        <attr name="hitBackGroundColor" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressBar">
+        <attr name="android:progressDrawable"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:max"/>
+        <attr name="android:progress"/>
+        <attr name="android:secondaryProgress"/>
+    </declare-styleable>
+
+    <declare-styleable name="SeekBar">
+        <attr name="android:thumb"/>
+        <attr name="android:thumbOffset"/>
+    </declare-styleable>
+    <declare-styleable name="Theme">
+        <attr name="android:disabledAlpha"/>
+    </declare-styleable>
+
+    <declare-styleable name="EricAnalogClock">
+        <attr name="eric_dial" format="reference"/>
+        <attr name="eric_hand_hour" format="reference"/>
+        <attr name="eric_hand_minute" format="reference"/>
+    </declare-styleable>
+
+
+    <!-- Default GridView style. -->
+    <attr name="gridViewStyle" format="reference"/>
+    <declare-styleable name="TwoWayAbsListView">
+        <!-- Drawable used to indicate the currently selected item in the list. -->
+        <attr name="listSelector" format="color|reference"/>
+        <!-- When set to true, the selector will be drawn over the selected item.
+             Otherwise the selector is drawn behind the selected item. The default
+             value is false. -->
+        <attr name="drawSelectorOnTop" format="boolean"/>
+        <!-- Used by ListView and GridView to stack their content from the bottom. -->
+        <attr name="stackFromBottom" format="boolean"/>
+        <!-- When set to true, the list uses a drawing cache during scrolling.
+             This makes the rendering faster but uses more memory. The default
+             value is true. -->
+        <attr name="scrollingCache" format="boolean"/>
+        <!-- When set to true, the list will filter results as the user types. The
+             List's adapter must support the Filterable interface for this to work. -->
+        <!-- <attr name="textFilterEnabled" format="boolean" /> -->
+        <!-- Sets the transcript mode for the list. In transcript mode, the list
+             scrolls to the bottom to make new items visible when they are added. -->
+        <attr name="transcriptMode">
+            <!-- Disables transcript mode. This is the default value. -->
+            <enum name="disabled" value="0"/>
+            <!-- The list will automatically scroll to the bottom when
+                 a data set change notification is received and only if the last item is
+                 already visible on screen. -->
+            <enum name="normal" value="1"/>
+            <!-- The list will automatically scroll to the bottom, no matter what items
+                 are currently visible. -->
+            <enum name="alwaysScroll" value="2"/>
+        </attr>
+        <!-- Indicates that this list will always be drawn on top of solid, single-color
+             opaque background. This allows the list to optimize drawing. -->
+        <attr name="cacheColorHint" format="color"/>
+        <!-- Enables the fast scroll thumb that can be dragged to quickly scroll through
+             the list. -->
+        <!-- <attr name="fastScrollEnabled" format="boolean" /> -->
+        <!-- When set to true, the list will use a more refined calculation
+             method based on the pixels height of the items visible on screen. This
+             property is set to true by default but should be set to false if your adapter
+             will display items of varying heights. When this property is set to true and
+             your adapter displays items of varying heights, the scrollbar thumb will
+             change size as the user scrolls through the list. When set to fale, the list
+             will use only the number of items in the adapter and the number of items visible
+             on screen to determine the scrollbar's properties. -->
+        <attr name="smoothScrollbar" format="boolean"/>
+
+        <!-- Use this attribute to control which direction the GridView scrolls when in
+             portrait orientation -->
+        <attr name="scrollDirectionPortrait">
+            <!-- Scroll up vertically. This is the default value. -->
+            <enum name="vertical" value="0"/>
+            <!-- Scroll horizontally. -->
+            <enum name="horizontal" value="1"/>
+        </attr>
+        <attr name="scrollDirectionLandscape">
+            <!-- Scroll up vertically. This is the default value. -->
+            <enum name="vertical" value="0"/>
+            <!-- Scroll horizontally. -->
+            <enum name="horizontal" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TwoWayGridView">
+        <attr name="horizontalSpacing" format="dimension"/>
+        <attr name="verticalSpacing" format="dimension"/>
+        <attr name="enableItemClick" format="boolean"/>
+        <attr name="stretchMode">
+            <enum name="none" value="0"/>
+            <enum name="spacingWidth" value="1"/>
+            <enum name="columnWidth" value="2"/>
+            <enum name="spacingWidthUniform" value="3"/>
+        </attr>
+        <attr name="columnWidth" format="dimension"/>
+        <attr name="rowHeight" format="dimension"/>
+        <attr name="numColumns" format="integer" min="0">
+            <enum name="auto_fit" value="-1"/>
+        </attr>
+        <attr name="numRows" format="integer" min="0">
+            <enum name="auto_fit" value="-1"/>
+        </attr>
+        <attr name="gravity"/>
+    </declare-styleable>
+
+    <declare-styleable name="SpanVariableGridView">
+        <attr name="grid_numColumns" format="integer"/>
+        <attr name="grid_itemMargin" format="dimension"/>
+    </declare-styleable>
+
+    <attr name="cropImageStyle" format="reference"/>
+
+    <declare-styleable name="CropImageView">
+        <attr name="highlightColor" format="reference|color"/>
+        <attr name="showThirds" format="boolean"/>
+        <attr name="showCircle" format="boolean"/>
+        <attr name="showHandles">
+            <enum name="changing" value="0"/>
+            <enum name="always" value="1"/>
+            <enum name="never" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color"/>
+        <attr name="pstsUnderlineColor" format="color"/>
+        <attr name="pstsDividerColor" format="color"/>
+        <attr name="pstsSelectTextColor" format="color"/>
+        <attr name="pstsUnSelectTextColor" format="color"/>
+        <attr name="pstsIndicatorHeight" format="dimension"/>
+        <attr name="pstsUnderlineHeight" format="dimension"/>
+        <attr name="pstsDividerPadding" format="dimension"/>
+        <attr name="pstsTabPaddingLeftRight" format="dimension"/>
+        <attr name="pstsScrollOffset" format="dimension"/>
+        <attr name="pstsTabBackground" format="reference"/>
+        <attr name="pstsShouldExpand" format="boolean"/>
+        <attr name="pstsShowDivider" format="boolean"/>
+        <attr name="pstsTextAllCaps" format="boolean"/>
+        <attr name="IndicatorType">
+            <!-- 向上的三角形-->
+            <enum name="UP" value="0"/>
+            <!--  向下的三角形-->
+            <enum name="DOWN" value="1"/>
+            <!-- 線 -->
+            <enum name="LINE" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension"/>
+        <attr name="civ_border_color" format="color"/>
+        <attr name="civ_border_overlay" format="boolean"/>
+        <attr name="civ_fill_color" format="color"/>
+    </declare-styleable>
+
+</resources>
