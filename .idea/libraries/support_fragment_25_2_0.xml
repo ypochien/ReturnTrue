@@ -4,9 +4,8 @@
       <root url="jar://$USER_HOME$/.android/build-cache/e3d9f936223a0efde078ad1b6297b3dabbb4acdc/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/e3d9f936223a0efde078ad1b6297b3dabbb4acdc/output/res" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../android-sdk-macosx/extras/android/m2repository/com/android/support/support-fragment/25.2.0/support-fragment-25.2.0-sources.jar!/" />
+      <root url="jar://C:/android-sdk-macosx/extras/android/m2repository/com/android/support/support-fragment/25.2.0/support-fragment-25.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

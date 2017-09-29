@@ -4,7 +4,6 @@
       <root url="jar://$USER_HOME$/.android/build-cache/d2de94c7cf591ad22ec63903e3ba081a9fef0aaa/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/d2de94c7cf591ad22ec63903e3ba081a9fef0aaa/output/res" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>
