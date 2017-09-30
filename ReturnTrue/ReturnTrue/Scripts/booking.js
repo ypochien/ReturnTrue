@@ -63,8 +63,12 @@ ReturnTrue.initPage = function(){
             });
             ReturnTrue.blockUI.unblock();
         }).fail(function(jqXHR, textStatus){
-            console.log(jqXHR);
-            console.log(textStatus);
+            swal({
+                title: "購票失敗",
+                type: 'error',
+                showCloseButton: true,
+                showCancelButton: true,
+            });
             ReturnTrue.blockUI.unblock();
         });
         
