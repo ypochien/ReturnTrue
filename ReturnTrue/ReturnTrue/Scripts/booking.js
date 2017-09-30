@@ -45,7 +45,6 @@ var bookingSystem = function(){
     };
 };
 
-
 bookingSystem.prototype.buyTickets = function(data){
     $.ajax({
         url: "/api/book",
@@ -76,7 +75,6 @@ bookingSystem.prototype.buyTickets = function(data){
     });
 };
 */
-
 
 var ReturnTrue = ReturnTrue || {};
 ReturnTrue.stationNameDict = {
