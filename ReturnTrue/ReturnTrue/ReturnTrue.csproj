@@ -222,6 +222,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\loading.gif" />
     <Content Include="Content\order.css" />
+    <Content Include="Content\photo_2017-09-30_16-09-15.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

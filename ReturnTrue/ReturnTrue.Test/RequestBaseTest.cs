@@ -36,5 +36,23 @@ namespace ReturnTrue.Test
             // Arrange
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void TestRequestBaseGetURL()
+        {
+            // Arrange
+            var expected = "test_field=test";
+            var actual = string.Empty;
+            var testRequest = new TestRequest()
+            {
+                TestField = "test"
+            };
+
+            // Act
+            actual = testRequest.GetURL();
+
+            // Arrange
+            Assert.Equal(expected, actual);
+        }
     }
 }
