@@ -1,6 +1,6 @@
 /* container */
 
-.container .banner { position: relative; }
+.container .banner { position: relative; background:rgba(240, 240, 233, 1); }
 .container .banner-text { background: rgba(255,255,255, 0.1); position: absolute; color: #FFF; font-weight: 900; font-size: 20px; top: 29%; left: 7%; color:#666; font-size: 3.4vw; font-family: proxima-n-w01-reg,sans-serif; text-align: center; padding: 17px; border-radius: 5px;}
 .container .submit-form { 
     border: 1px solid #CCC;
@@ -9,3 +9,4 @@
     background: #F5F5F5;
  }
  .container .booking-btn-group { text-align: center;}
+ .container .paragraph:nth-child(even) { background:rgba(240, 240, 233, 1); }
