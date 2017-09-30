@@ -37,9 +37,10 @@ namespace ReturnTrue.Controllers
 
             return new BookResponse
             {
+                Id = confirmResult.Id,
                 Start = "羅馬",
                 End = "米蘭",
-                TicketPrice = 100,
+                TicketPrice = confirmResult.TicketPrice.Cents,
                 UserInfo = new UserInfo
                 {
                     Email = requestData.Email
