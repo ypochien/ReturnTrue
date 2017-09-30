@@ -10,3 +10,5 @@
  }
  .container .booking-btn-group { text-align: center;}
  .container .paragraph:nth-child(even) { background:rgba(240, 240, 233, 1); }
+ .container .slogan {padding: 150px 0;}
+ .container .slogan h5 { text-align: center; font-size: 4vw; font-weight: 900;}

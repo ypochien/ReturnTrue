@@ -41,10 +41,11 @@ ReturnTrue.initPage = function(){
                 title: "購票成功",
                 type: 'success',
                 html:
-                  '<p>起始站' + d.Start + "<p>" + 
-                  '<p>終點站' + d.End + "<p>" + 
-                  '<p>票價' + d.TicketPrice + "<p>" + 
-                  '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
+                    '<p>訂單標號' + d.Id + "<p>" + 
+                    '<p>起始站' + d.Start + "<p>" + 
+                    '<p>終點站' + d.End + "<p>" + 
+                    '<p>票價' + d.TicketPrice + "<p>" + 
+                    '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
                 showCloseButton: true,
                 showCancelButton: true,
             });
