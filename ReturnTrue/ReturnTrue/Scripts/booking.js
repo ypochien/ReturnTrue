@@ -1,4 +1,9 @@
 var ReturnTrue = ReturnTrue || {};
+ReturnTrue.stationNameDict = {
+    "ST_D8NNN9ZK" : "罗马",
+    "ST_ENZZ7QVN" : "威尼斯",
+    "ST_EZVVG1X5" : "米兰",
+};
 ReturnTrue.blockUI = {
     block: function () {
         $.blockUI({
@@ -39,23 +44,19 @@ ReturnTrue.initPage = function(){
                 "End": end  
             };
             console.log(data);
+            
         $.ajax({
             url: "/api/book",
             method: "POST",
             data: data
         }).done(function(d) {
-            var list = {
-                "ST_D8NNN9ZK" : "罗马",
-                "ST_ENZZ7QVN" : "威尼斯",
-                "ST_EZVVG1X5" : "米兰",
-            };
             swal({
                 title: "購票成功",
                 type: 'success',
                 html:
                     '<p>訂單編號 :' + d.Id + "<p>" + 
-                    '<p>起始站 :' + list[d.Start] + "<p>" + 
-                    '<p>終點站 :' + list[d.End] + "<p>" + 
+                    '<p>起始站 :' + ReturnTrue.stationNameDict[d.Start] + "<p>" + 
+                    '<p>終點站 :' + ReturnTrue.stationNameDict[d.End] + "<p>" + 
                     '<p>票價 :' + d.TicketPrice + "<p>" + 
                     '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
                 showCloseButton: true,
