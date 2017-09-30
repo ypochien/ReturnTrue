@@ -30,6 +30,7 @@ namespace ReturnTrue.Models
             var sortedSources = new SortedDictionary<string, string>(sources);
 
             var input = string.Join("", sortedSources.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToList());
+            input = input.ToLower();
 
             using (MD5 md5Hash = MD5.Create())
             {

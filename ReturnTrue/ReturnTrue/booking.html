@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/Content/index.css" />
+    <link rel="stylesheet" href="/Content/order.css" />
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="#">Return Trun 訂票系統</a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">訂票 </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">查詢 </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-md-12">
+
+                <ul class="list-unstyled order-list">
+                    <li class="media order-item my-1">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1 py-1">Email address : </h5>
+                            <input value="test@test.com" name="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                    </li>
+                    <li class="media order-item my-4">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1 py-1">Enter Tags : </h5>
+                            <input test="test" name="Tag" type="text" class="form-control" id="tags" placeholder="Enter tags">
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-primary order-submit"> 送出 </button>
+
+            </div>
+
+        </div>
+        <!--/row-->
+
+
+        <footer>
+
+        </footer>
+
+    </div>
+    <!--/.container-->
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script  src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script>
+    
+        $(function(){
+            function getFormData($form){
+                var unindexed_array = $form.serializeArray();
+                var indexed_array = {};
+
+                $.map(unindexed_array, function(n, i){
+                    indexed_array[n['name']] = n['value'];
+                });
+
+                return indexed_array;
+            };
+            
+            $("body").on("click", ".order-submit", function(){
+                var $form = $(".order-form");
+                var orderData = getFormData($form);
+                // console.log(orderData);
+                $.ajax({
+                    url: "http://returntrue123456.azurewebsites.net/api/book",
+                    method: "POST",
+                    data: { "Email": "test@test.com", "Tag": "test" }
+                }).done(function(d) {
+                    console.log(d);
+                    /*
+                    swal({
+                        title: "購票成功",
+                        type: 'info',
+                        html:
+                          '<p>起始站' + d.Start + "<p>" + 
+                          '<p>終點站' + d.End + "<p>" + 
+                          '<p>票價' + d.TicketPrice + "<p>" + 
+                          '<p>您的 Email' + d.UserInfo.Email + "<p>" ,
+                        showCloseButton: true,
+                        showCancelButton: true,
+                    });
+                    */
+                });
+            });
+            
+        });
+    </script>
+</body>
+
+</html>
