@@ -1,14 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReturnTrue.Models;
-using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace ReturnTrue.Test
 {
+    [TestClass]
     public class RequestBaseTest
     {
         internal class TestRequest : RequestBase
@@ -17,7 +15,7 @@ namespace ReturnTrue.Test
             public string TestField { get; set; }
         }
 
-        [Fact]
+        [TestMethod]
         public void TestRequestBaseGetSignatureSources()
         {
             // Arrange
@@ -34,10 +32,10 @@ namespace ReturnTrue.Test
             actual = testRequest.GetSignatureSources();
 
             // Arrange
-            Assert.Equal(expected, actual);
+            Assert.AreEqual(expected.Count, actual.Count);
         }
 
-        [Fact]
+        [TestMethod]
         public void TestRequestBaseGetURL()
         {
             // Arrange
@@ -52,7 +50,7 @@ namespace ReturnTrue.Test
             actual = testRequest.GetURL();
 
             // Arrange
-            Assert.Equal(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
     }
 }
