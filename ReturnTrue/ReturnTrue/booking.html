@@ -21,7 +21,7 @@
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="#">Return Trun; 快速找到與您興趣相合的旅伴 </a>
+        <a class="navbar-brand" href="#">Return True; 快速找到與您興趣相合的旅伴 </a>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
@@ -53,17 +53,16 @@
         <div class="media paragraph pl-5 pr-5 pb-5">
             <img class="d-flex align-self-center mr-3" src="..." alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">Center-aligned media</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-                    vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                    Donec lacinia congue felis in faucibus.</p>
-                <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.</p>
+                
+                <p>全世界首家火車座位配對訂票系統 Reture True  上線啦！！！<br />
+                不用再煩惱隔壁座位的汗臭逼人，<br />
+                不用再擔心隔壁的無聊人士，<br />
+                在這漫長的旅途中，<br />
+                Reture True 幫您找最適合的人坐在旁邊！</p>
             </div>
         </div>
 
         <div class="media paragraph pl-5 pr-5 pb-5 pt-5">
-            
             <div class="media-body">
                 <h5 class="mt-0">Center-aligned media</h5>
                 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
@@ -147,62 +146,18 @@
     </div>
     <!--/.container-->
     
-
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-    <script  src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-    <script>
-    
-        $(function(){
-            function getFormData($form){
-                var unindexed_array = $form.serializeArray();
-                var indexed_array = {};
-
-                $.map(unindexed_array, function(n, i){
-                    indexed_array[n['name']] = n['value'];
-                });
-
-                return indexed_array;
-            };
-            
-            $("body").on("click", ".order-submit", function(){
-                var $form = $(".order-form");
-                var orderData = getFormData($form);
-                // console.log(orderData);
-                $.ajax({
-                    url: "http://returntrue123456.azurewebsites.net/api/book",
-                    method: "POST",
-                    data: { "Email": "test@test.com", "Tag": "test" }
-                }).done(function(d) {
-                    console.log(d);
-                    
-                    swal({
-                        title: "購票成功",
-                        type: 'success',
-                        html:
-                          '<p>起始站' + d.Start + "<p>" + 
-                          '<p>終點站' + d.End + "<p>" + 
-                          '<p>票價' + d.TicketPrice + "<p>" + 
-                          '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
-                        showCloseButton: true,
-                        showCancelButton: true,
-                    });
-                    
-                });
-            });
-            
-        });
-    </script>
+    <script src="https://servicerd.sinotrade.com.tw/myStatic/plugin/blockUI-2.70.0/blockUI.js"></script>
+    <script src="../Scripts/booking.js"></script>
+    <script>ReturnTrue.initPage();</script>
 </body>
-
-</html>
