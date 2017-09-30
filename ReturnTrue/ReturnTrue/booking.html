@@ -38,26 +38,61 @@
     </nav>
 
     <div class="container">
-
-        <div class="row">
-
+        <div class="row banner mb-5">
+            
             <div class="col-12 col-md-12">
+                <img src="/Content/bookingBanner.jpg" style="width:100%;" />
+            </div>
 
+            <div class="banner-text">
+                <p>No Tags No Tickets</p>
+                <p>&</p>
+                <p>Return True</p>
+            </div>
+        </div>
+
+
+
+        <div class="row pl-5 pr-5 mb-5">
+
+            <div class="col-12 col-md-12 submit-form">
+                <h2> 購買訂單 </h2>
                 <ul class="list-unstyled order-list">
-                    <li class="media order-item my-1">
+                    <li class="media order-item my-4">
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1 py-1">Email address : </h5>
+                            <div class="row">
+                                <div class="col-6 col-md-6">
+                                    <h5 class="mt-0 mb-1 py-1">請選擇上車地點 : </h5>
+                                    <select class="form-control">
+                                        <option>請選擇上車地點</option>
+                                    </select>
+                                </div>
+            
+                                <div class="col-6 col-md-6">
+                                    <h5 class="mt-0 mb-1 py-1">請選擇目的地 :  </h5>
+                                    <select class="form-control">
+                                        <option>請選擇目的地</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="media order-item my-4">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1 py-1">請輸入 Email 讓我們能夠聯絡您 : </h5>
                             <input value="test@test.com" name="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                     </li>
                     <li class="media order-item my-4">
                         <div class="media-body">
-                            <h5 class="mt-0 mb-1 py-1">Enter Tags : </h5>
+                            <h5 class="mt-0 mb-1 py-1">輸入你想要跟誰做的關鍵字 : </h5>
                             <input test="test" name="Tag" type="text" class="form-control" id="tags" placeholder="Enter tags">
                         </div>
                     </li>
                 </ul>
-                <button class="btn btn-primary order-submit"> 送出 </button>
+                <div class="booking-btn-group">
+                    <button class="btn btn-primary order-submit"> 送出 </button>
+                </div>
 
             </div>
 
