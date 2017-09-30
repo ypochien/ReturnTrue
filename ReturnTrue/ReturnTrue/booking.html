@@ -8,8 +8,7 @@
     <meta name="author" content="">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="/Content/index.css" />
     <link rel="stylesheet" href="/Content/order.css" />
 
@@ -111,19 +110,19 @@
                     data: { "Email": "test@test.com", "Tag": "test" }
                 }).done(function(d) {
                     console.log(d);
-                    /*
+                    
                     swal({
                         title: "購票成功",
-                        type: 'info',
+                        type: 'success',
                         html:
                           '<p>起始站' + d.Start + "<p>" + 
                           '<p>終點站' + d.End + "<p>" + 
                           '<p>票價' + d.TicketPrice + "<p>" + 
-                          '<p>您的 Email' + d.UserInfo.Email + "<p>" ,
+                          '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
                         showCloseButton: true,
                         showCancelButton: true,
                     });
-                    */
+                    
                 });
             });
             
