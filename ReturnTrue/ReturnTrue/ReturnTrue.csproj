@@ -188,7 +188,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Models\BookAsyncRequest.cs" />
+    <Compile Include="Models\BookGrailConfirmRequest.cs" />
     <Compile Include="Models\BookGrailContact.cs" />
+    <Compile Include="Models\BookGrailCreditCard.cs" />
     <Compile Include="Models\BookGrailPassenger.cs" />
     <Compile Include="Models\BookGrailRequest.cs" />
     <Compile Include="Models\BookGrailSearchResponse.cs" />
@@ -218,10 +220,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image_2017-09-30_11-04-28.png" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\loading.gif" />
     <Content Include="Content\order.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\booking.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

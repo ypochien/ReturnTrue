@@ -24,7 +24,11 @@ namespace ReturnTrue.Models
 
         public string Sign()
         {
-            var sources = Request.GetSignatureSources();
+            var sources = new Dictionary<string, string>();
+            if (Request != null)
+            {
+                sources = Request.GetSignatureSources();
+            }
             sources["api_key"] = this.ApiKey;
             sources["t"] = new DateTimeOffset(CurrentTime).ToUnixTimeSeconds().ToString();
             var sortedSources = new SortedDictionary<string, string>(sources);
