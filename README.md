@@ -4,4 +4,4 @@
 
 [![Build Status][travisMasterBadge]]
 
-[travisMasterBadge]: https://travis-ci.org/ypochien/ReturnTrue "Continuous Integration test suite"
+[travisMasterBadge]: https://travis-ci.org/strangenaiad/ReturnTrue "Continuous Integration test suite"
