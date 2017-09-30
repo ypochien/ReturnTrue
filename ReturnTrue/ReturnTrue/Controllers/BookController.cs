@@ -21,13 +21,19 @@ namespace ReturnTrue.Controllers
         // POST api/values
         public BookResponse Post(BookRequest requestData)
         {
+
             var service = new GrailService(apiKey, secret, host);
 
             var searchResponse = service.Search();
-            var searchResult = service.GetSearchResult(searchResponse.async);
+            var searchResults = service.GetSearchResult(searchResponse.async);
 
-            var bookResponse = service.Book(searchResult[0].Solutions[0].Sections[0].Offers[0].Services[0].BookingCode, requestData.Email);
+            var searchResult = searchResults.Where(i => i.Railway.Code == "FB").FirstOrDefault();
+
+            var bookResponse = service.Book(searchResult.Solutions[0].Sections[0].Offers[0].Services[0].BookingCode, requestData.Email);
             var bookResult = service.GetBookResult(bookResponse.async);
+
+            var confirmResponse = service.Confirm(bookResult.Id);
+            var confirmResult = service.GetConfirmResult(confirmResponse.async);
 
             return new BookResponse
             {

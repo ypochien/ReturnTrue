@@ -32,7 +32,7 @@ ReturnTrue.initPage = function(){
         var orderData = ReturnTrue.getFormData($form);
         // console.log(orderData);
         $.ajax({
-            url: "http://returntrue123456.azurewebsites.net/api/book",
+            url: "/api/book",
             method: "POST",
             data: { "Email": "test@test.com", "Tag": "test" }
         }).done(function(d) {

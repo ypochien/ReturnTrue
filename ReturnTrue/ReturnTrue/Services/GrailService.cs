@@ -22,20 +22,20 @@ namespace ReturnTrue.Services
         {
             this.ApiKey = apiKey;
             this.Secret = secret;
+            this.Host = host;
 
             ServicePointManager.Expect100Continue = true;
-            this.Host = host;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         public BookGrailTokenResponse Search()
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             var searchReqeust = new SearchRequest
             {
-                StartStationCode = "ST_D8NNN9ZK",
-                DestinationStationCode = "ST_EZVVG1X5",
-                StartTime = DateTime.Now.AddDays(20),
+                StartStationCode = "ST_E0203JK4",
+                DestinationStationCode = "ST_DQMOQ7GW",
+                StartTime = DateTime.Today.AddHours(5).AddDays(20),
                 NumberOfAdult = 1,
                 NumberOfChildren = 0
             };
@@ -103,7 +103,7 @@ namespace ReturnTrue.Services
                 birthdate = "1985-01-01",
                 gender = "male",
                 passport = "A123456",
-                phone = "15000367081"
+                phone = "10086"
             });
             var requestBody = new BookGrailRequest
             {
@@ -176,5 +176,65 @@ namespace ReturnTrue.Services
 
             return null;
         }
+
+        public BookGrailTokenResponse Confirm(string orderId)
+        {
+            var requestData = new BookGrailConfirmRequest();
+            requestData.OrderId = orderId;
+
+            var dateTime = DateTime.Now.ToUniversalTime();
+            var secure = new ParamSecure(this.Secret, this.ApiKey, dateTime, requestData);
+            var signature = secure.Sign();
+
+            var client = new RestClient(this.Host);
+
+            var request = new RestRequest($"/api/v2/online_orders/{orderId}/online_confirmations", Method.POST);
+            request.AddHeader("From", this.ApiKey);
+            request.AddHeader("Date", dateTime.ToString("r"));
+            request.AddHeader("Authorization", signature);
+            //request.AddHeader("Content-type", "application/json");
+            //request.AddJsonBody(requestData);
+
+            var response = client.Post(request);
+            var responseObject = JsonConvert.DeserializeObject<BookGrailTokenResponse>(response.Content);
+
+            return responseObject;
+        }
+
+        public BookGrailBookResponse GetConfirmResult(string token)
+        {
+            var asyncRequest = new BookAsyncRequest
+            {
+                AsyncKey = token
+            };
+
+            var dateTime = DateTime.Now.ToUniversalTime();
+            var secure = new ParamSecure(this.Secret, this.ApiKey, dateTime, asyncRequest);
+            var signature = secure.Sign();
+
+            var client = new RestClient(this.Host);
+
+            var request = new RestRequest($"/api/v2/async_results/{asyncRequest.AsyncKey}", Method.GET);
+            request.AddHeader("From", this.ApiKey);
+            request.AddHeader("Date", dateTime.ToString("r"));
+            request.AddHeader("Authorization", signature);
+
+            var notReady = true;
+            do
+            {
+                var response = client.Get(request);
+                notReady = response.StatusCode != HttpStatusCode.OK;
+                if (!notReady)
+                {
+                    var responseData = JsonConvert.DeserializeObject<BookGrailBookResponse>(response.Content);
+                    return responseData;
+                }
+                Thread.Sleep(1000);
+
+            } while (notReady);
+
+            return null;
+        }
+
     }
 }
