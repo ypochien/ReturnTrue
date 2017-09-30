@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using ReturnTrue.Models;
+using ReturnTrue.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +17,24 @@ namespace ReturnTrue.Controllers
         // POST api/values
         public BookResponse Post(BookRequest requestData)
         {
-            var secret = "85237047-65cc-46bf-95f3-4a382faf75d1";
-            var apiKey = "af09a360b7e4485b98f8bb768a38c9d8";
+            var secret = "4d69c795-4455-4e8a-bb40-7ef4db2ad0d2";
+            var apiKey = "6bbbd8759d744058b9b58f22d5ac96b0";
             var host = "https://alpha.api.detie.cn/";
 
+            var passengers = new List<BookGrailPassenger>();
+            passengers.Add(new BookGrailPassenger
+            {
+                first_name = "test",
+                last_name = "test",
+                email = "test@test.com",
+                birthdate = "1985-01-01",
+                gender = "male",
+                passport = "A123456",
+                phone = "15000367081"
+            });
             var requestBody = new BookGrailRequest
             {
-                passengers = new BookGrailPassenger
-                {
-                    first_name = "test",
-                    last_name = "test",
-                    email = requestData.Email,
-                    birthdate = "1985-01-01",
-                    gender = "male",
-                    passport = "A123456",
-                    phone = "15000367081"
-                },
+                passengers = passengers,
                 contact = new BookGrailContact
                 {
                     name = "Liping",
@@ -72,6 +75,23 @@ namespace ReturnTrue.Controllers
                     Email = requestData.Email
                 }
             };
+        }
+
+        public IHttpActionResult Get()
+        {
+            var secret = "4d69c795-4455-4e8a-bb40-7ef4db2ad0d2";
+            var apiKey = "6bbbd8759d744058b9b58f22d5ac96b0";
+            var host = "https://alpha.api.detie.cn/";
+
+            var service = new GrailService(apiKey, secret, host);
+
+            var searchResponse = service.Search();
+            var searchResult = service.GetSearchResult(searchResponse.async);
+
+            var bookResponse = service.Book(searchResult[0].Solutions[0].Sections[0].Offers[0].Services[0].BookingCode);
+            var bookResult = service.GetBookResult(bookResponse.async);
+
+            return Ok(bookResult);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ReturnTrue.Models
     {
         public BookGrailContact contact { get; set; }
 
-        public BookGrailPassenger passengers { get; set; }
+        public List<BookGrailPassenger> passengers { get; set; }
 
         public List<string> sections { get; set; }
 
