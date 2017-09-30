@@ -68,20 +68,7 @@
             </div>
         </div>
 
-        <div class="media paragraph pl-5 pr-5 pb-5 pt-5">
-            <img class="d-flex align-self-center mr-3" src="..." alt="Generic placeholder image">
-            <div class="media-body">
-                <h5 class="mt-0">Center-aligned media</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-                    vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                    Donec lacinia congue felis in faucibus.</p>
-                <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-        </div>
-
         <div class="row pl-5 pr-5 mb-5 mt-5">
-
             <div class="col-12 col-md-12 submit-form">
                 <h2> 購買訂單 </h2>
                 <ul class="list-unstyled order-list">
@@ -90,8 +77,8 @@
                             <div class="row">
                                 <div class="col-6 col-md-6">
                                     <h5 class="mt-0 mb-1 py-1">請選擇上車地點 : </h5>
-                                    <select class="form-control">
-                                        <option>請選擇上車地點</option>
+                                    <select id="start" name="Start" class="form-control">
+                                        <option value="">請選擇上車地點</option>
                                         <option value="ST_D8NNN9ZK">罗马(Roma Termini(特米尼)</option>
                                         <option value="ST_ENZZ7QVN">威尼斯(Venezia S. Lucia(威尼斯圣露西亚)</option>
                                         <option value="ST_EZVVG1X5">米兰(Milano Centrale(中央火车站)</option>
@@ -100,8 +87,8 @@
             
                                 <div class="col-6 col-md-6">
                                     <h5 class="mt-0 mb-1 py-1">請選擇目的地 :  </h5>
-                                    <select class="form-control">
-                                        <option>請選擇目的地</option>
+                                    <select id="end" name="End" class="form-control">
+                                        <option value="">請選擇目的地</option>
                                         <option value="ST_D8NNN9ZK">罗马(Roma Termini(特米尼)</option>
                                         <option value="ST_ENZZ7QVN">威尼斯(Venezia S. Lucia(威尼斯圣露西亚)</option>
                                         <option value="ST_EZVVG1X5">米兰(Milano Centrale(中央火车站)</option>
@@ -123,12 +110,11 @@
                         </div>
                     </li>
                 </ul>
+                
                 <div class="booking-btn-group">
                     <button class="btn btn-primary order-submit"> 送出 </button>
                 </div>
-
             </div>
-
         </div>
         <!--/row-->
 

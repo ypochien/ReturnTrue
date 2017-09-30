@@ -28,23 +28,35 @@ ReturnTrue.getFormData = function($form){
 ReturnTrue.initPage = function(){
     $("body").on("click", ".order-submit", function(){
         ReturnTrue.blockUI.block();
-        var $form = $(".order-form");
-        var orderData = ReturnTrue.getFormData($form);
-        // console.log(orderData);
+        var email = $("#email").val(),
+            tags = $("#tags").val(),
+            start = $("#start").val(),
+            end = $("#end").val(),
+            data = { 
+                "Email": email, 
+                "Tag": tags, 
+                "Start" : start, 
+                "End": end  
+            };
+            console.log(data);
         $.ajax({
             url: "/api/book",
             method: "POST",
-            data: { "Email": "test@test.com", "Tag": "test" }
+            data: data
         }).done(function(d) {
-            console.log(d);
+            var list = {
+                "ST_D8NNN9ZK" : "罗马",
+                "ST_ENZZ7QVN" : "威尼斯",
+                "ST_EZVVG1X5" : "米兰",
+            };
             swal({
                 title: "購票成功",
                 type: 'success',
                 html:
-                    '<p>訂單標號' + d.Id + "<p>" + 
-                    '<p>起始站' + d.Start + "<p>" + 
-                    '<p>終點站' + d.End + "<p>" + 
-                    '<p>票價' + d.TicketPrice + "<p>" + 
+                    '<p>訂單編號 :' + d.Id + "<p>" + 
+                    '<p>起始站 :' + list[d.Start] + "<p>" + 
+                    '<p>終點站 :' + list[d.End] + "<p>" + 
+                    '<p>票價 :' + d.TicketPrice + "<p>" + 
                     '<p>您的 Email : ' + d.UserInfo.Email + "<p>" ,
                 showCloseButton: true,
                 showCancelButton: true,
@@ -55,5 +67,6 @@ ReturnTrue.initPage = function(){
             console.log(textStatus);
             ReturnTrue.blockUI.unblock();
         });
+        
     });
 };
