@@ -2,6 +2,6 @@
 台北敏捷熱身活動場
 
 
-[![Build Status][travisMasterBadge]][travisLink]
+[![Build Status][travisMasterBadge]]
 
-[travisMasterBadge]: https://travis-ci.org/lz4/lz4.svg?branch=master "Continuous Integration test suite"
+[travisMasterBadge]: https://travis-ci.org/ypochien/ReturnTrue "Continuous Integration test suite"
