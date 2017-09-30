@@ -24,7 +24,7 @@ namespace ReturnTrue.Controllers
 
             var service = new GrailService(apiKey, secret, host);
 
-            var searchResponse = service.Search();
+            var searchResponse = service.Search(requestData.Start, requestData.End);
             var searchResults = service.GetSearchResult(searchResponse.async);
 
             var searchResult = searchResults.Where(i => i.Railway.Code == "FB").FirstOrDefault();
@@ -38,8 +38,8 @@ namespace ReturnTrue.Controllers
             return new BookResponse
             {
                 Id = confirmResult.Id,
-                Start = "羅馬",
-                End = "米蘭",
+                Start = requestData.Start,
+                End = requestData.End,
                 TicketPrice = confirmResult.TicketPrice.Cents,
                 UserInfo = new UserInfo
                 {
