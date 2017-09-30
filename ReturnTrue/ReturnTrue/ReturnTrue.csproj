@@ -220,6 +220,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image_2017-09-30_11-04-28.png" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\loading.gif" />
     <Content Include="Content\order.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
