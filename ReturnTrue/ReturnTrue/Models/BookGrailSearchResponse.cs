@@ -18,12 +18,6 @@ namespace ReturnTrue.Models
         public Solution[] Solutions { get; set; }
     }
 
-    public partial class Railway
-    {
-        [JsonProperty("code")]
-        public string Code { get; set; }
-    }
-
     public partial class Solution
     {
         [JsonProperty("duration")]
@@ -133,14 +127,5 @@ namespace ReturnTrue.Models
 
         [JsonProperty("type")]
         public string Type { get; set; }
-    }
-
-    public partial class From
-    {
-        [JsonProperty("code")]
-        public string Code { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }

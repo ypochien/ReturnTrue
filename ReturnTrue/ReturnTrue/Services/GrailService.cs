@@ -28,13 +28,13 @@ namespace ReturnTrue.Services
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
-        public BookGrailTokenResponse Search()
+        public BookGrailTokenResponse Search(string start = "ST_E0203JK4", string end = "ST_DQMOQ7GW")
         {
 
             var searchReqeust = new SearchRequest
             {
-                StartStationCode = "ST_E0203JK4",
-                DestinationStationCode = "ST_DQMOQ7GW",
+                StartStationCode = start,
+                DestinationStationCode = end,
                 StartTime = DateTime.Today.AddHours(5).AddDays(20),
                 NumberOfAdult = 1,
                 NumberOfChildren = 0
