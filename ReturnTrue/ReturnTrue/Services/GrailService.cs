@@ -92,14 +92,14 @@ namespace ReturnTrue.Services
             return null;
         }
 
-        public BookGrailTokenResponse Book(string bookingCode)
+        public BookGrailTokenResponse Book(string bookingCode, string email)
         {
             var passengers = new List<BookGrailPassenger>();
             passengers.Add(new BookGrailPassenger
             {
                 first_name = "test",
                 last_name = "test",
-                email = "test@test.com",
+                email = email,
                 birthdate = "1985-01-01",
                 gender = "male",
                 passport = "A123456",
@@ -111,7 +111,7 @@ namespace ReturnTrue.Services
                 contact = new BookGrailContact
                 {
                     name = "Liping",
-                    email = "test@test.com",
+                    email = email,
                     phone = "10086",
                     address = "beijing",
                     postcode = "100100"
