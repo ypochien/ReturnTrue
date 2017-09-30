@@ -8,25 +8,34 @@ namespace ReturnTrue.Models
 {
     public class SearchRequest : RequestBase
     {
-        [JsonProperty("s")]
+        [JsonProperty("from")]
         public string StartStationCode { get; set; }
 
-        [JsonProperty("d")]
+        [JsonProperty("to")]
         public string DestinationStationCode { get; set; }
 
-        [JsonProperty("dt")]
+        [JsonProperty("date")]
+        public string StartDateString
+        {
+            get
+            {
+                return this.StartTime.ToString("yyyy-MM-dd ");
+            }
+        }
+
+        [JsonProperty("time")]
         public string StartTimeString
         {
             get
             {
-                return this.StartTime.ToString("yyyy-MM-dd HH:mm");
+                return this.StartTime.ToString("HH:mm");
             }
         }
 
-        [JsonProperty("na")]
+        [JsonProperty("adult")]
         public int NumberOfAdult { get; set; }
 
-        [JsonProperty("nc")]
+        [JsonProperty("child")]
         public int NumberOfChildren { get; set; }
 
 
